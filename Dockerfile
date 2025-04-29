@@ -1,4 +1,4 @@
-FROM maven:3.9.6-jdk-17 AS build
+FROM maven:3.9.9-amazoncorretto-17-debian
 
 WORKDIR /app
 COPY . .

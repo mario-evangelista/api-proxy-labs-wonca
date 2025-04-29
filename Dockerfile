@@ -1,13 +1,16 @@
-FROM maven:3.9.9-amazoncorretto-17-debian
+FROM ubuntu:latest AS build
 
-WORKDIR /app
+RUN apt-get update
+RUN apt-get install openjdk-17-jdk -y
 COPY . .
-RUN mvn clean install -DskipTests
+
+RUN apt-get install maven -y
+RUN mvn clean install
 
 FROM openjdk:17-jdk-slim
 
 EXPOSE 8080
 
-COPY --from=build /app/target/correios-tracking-backend-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=build /target/deploy_render-1.0.0.jar app.jar
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT [ "java", "-jar", "app.jar" ]

@@ -10,8 +10,6 @@ import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("/api")
-//@CrossOrigin(origins = "http://localhost:3000")
-//@CrossOrigin(origins = "https://rastreio-encomendas-correios.vercel.app")
 @CrossOrigin(origins = "https://rastreio-encomendas-correios.onrender.com")  
 public class TrackingController {
 

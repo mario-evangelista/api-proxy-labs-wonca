@@ -53,7 +53,6 @@ public class TrackingService {
     private String correiosApiToken;
 
     public String trackPackage(String trackingCode) {
-        // Validação do trackingCode
         if (trackingCode == null || trackingCode.trim().isEmpty()) {
             throw new InvalidTrackingCodeException("Código de rastreamento é obrigatório");
         }
@@ -85,7 +84,6 @@ public class TrackingService {
     }
 
     public void registerPushToken(String trackingCode, String pushToken) {
-        // Validação dos parâmetros
         if (trackingCode == null || trackingCode.trim().isEmpty()) {
             throw new InvalidTrackingCodeException("Código de rastreamento é obrigatório");
         }
@@ -104,7 +102,7 @@ public class TrackingService {
     }
 
 
-    @Scheduled(fixedRate = 180000)
+    //@Scheduled(fixedRate = 180000)
     //@Scheduled(fixedRate = 600000)// 600000 10 minutos
     public void checkForUpdates() {
         List<TrackingData> allData = trackingDataRepository.findAll();

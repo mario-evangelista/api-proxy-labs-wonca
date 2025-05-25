@@ -104,7 +104,7 @@ public class TrackingService {
     }
 
 
-    @Scheduled(fixedRate = 180000)
+    //@Scheduled(fixedRate = 180000)
     //@Scheduled(fixedRate = 600000)// 600000 10 minutos
     public void checkForUpdates() {
         List<TrackingData> allData = trackingDataRepository.findAll();

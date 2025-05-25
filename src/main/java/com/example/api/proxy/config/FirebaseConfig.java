@@ -8,8 +8,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
-import java.io.FileInputStream;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 @Configuration
 public class FirebaseConfig {
@@ -17,14 +18,17 @@ public class FirebaseConfig {
     @PostConstruct
     public void initialize() {
         try {
-            String serviceAccountPath = System.getenv("FIREBASE_SERVICE_ACCOUNT_PATH");
-            System.out.println("FIREBASE_SERVICE_ACCOUNT_PATH: " + serviceAccountPath);
-            if (serviceAccountPath == null || serviceAccountPath.isEmpty()) {
-                throw new IllegalStateException("FIREBASE_SERVICE_ACCOUNT_PATH não configurado");
+            String serviceAccountJson = System.getenv("FIREBASE_SERVICE_ACCOUNT_KEY");
+            System.out.println("FIREBASE_SERVICE_ACCOUNT_KEY is set: " + (serviceAccountJson != null));
+            if (serviceAccountJson == null || serviceAccountJson.isEmpty()) {
+                throw new IllegalStateException("FIREBASE_SERVICE_ACCOUNT_KEY não configurado");
             }
-            FileInputStream serviceAccount = new FileInputStream(serviceAccountPath);
+            // Convert the JSON string to an InputStream
+            ByteArrayInputStream serviceAccountStream = new ByteArrayInputStream(
+                serviceAccountJson.getBytes(StandardCharsets.UTF_8)
+            );
             FirebaseOptions options = FirebaseOptions.builder()
-                    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                    .setCredentials(GoogleCredentials.fromStream(serviceAccountStream))
                     .build();
             if (FirebaseApp.getApps().isEmpty()) {
                 FirebaseApp.initializeApp(options);

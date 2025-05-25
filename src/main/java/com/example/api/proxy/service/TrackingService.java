@@ -104,7 +104,7 @@ public class TrackingService {
     }
 
 
-    //@Scheduled(fixedRate = 180000)
+    @Scheduled(fixedRate = 180000)
     //@Scheduled(fixedRate = 600000)// 600000 10 minutos
     public void checkForUpdates() {
         List<TrackingData> allData = trackingDataRepository.findAll();
@@ -113,7 +113,7 @@ public class TrackingService {
                 String trackingCode = data.getTrackingCode();
                 if (!trackingCode.matches(TRACKING_CODE_PATTERN)) {
                     logger.warn("Código de rastreamento inválido no banco: {}", trackingCode);
-                    continue; // Pula para o próximo registro
+                    continue;
                 }
 
                 String apiResponse = fetchTrackingFromCorreios(trackingCode);

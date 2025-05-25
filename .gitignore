@@ -32,8 +32,5 @@ build/
 ### VS Code ###
 .vscode/
 
-application-dev.properties
-application-prod.properties
-
 /src/main/resources/firebase/
 src/main/resources/firebase/serviceAccountKey.json

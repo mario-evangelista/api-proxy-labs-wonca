@@ -6,29 +6,39 @@ import com.google.firebase.FirebaseOptions;
 import com.google.firebase.messaging.FirebaseMessaging;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.ClassPathResource;
 
+import javax.annotation.PostConstruct;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 
 @Configuration
 public class FirebaseConfig {
 
-    @Bean
-    public FirebaseMessaging firebaseMessaging() throws IOException {
-        //InputStream serviceAccount = new ClassPathResource("firebase/serviceAccountKey.json").getInputStream();
-        FileInputStream serviceAccount = new FileInputStream(System.getenv("FIREBASE_CREDENTIALS"));
-
-        FirebaseOptions options = FirebaseOptions.builder()
-                .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                .build();
-
-        if (FirebaseApp.getApps().isEmpty()) {
-            FirebaseApp.initializeApp(options);
+    @PostConstruct
+    public void initialize() {
+        try {
+            String serviceAccountPath = System.getenv("FIREBASE_SERVICE_ACCOUNT_PATH");
+            System.out.println("FIREBASE_SERVICE_ACCOUNT_PATH: " + serviceAccountPath);
+            if (serviceAccountPath == null || serviceAccountPath.isEmpty()) {
+                throw new IllegalStateException("FIREBASE_SERVICE_ACCOUNT_PATH não configurado");
+            }
+            FileInputStream serviceAccount = new FileInputStream(serviceAccountPath);
+            FirebaseOptions options = FirebaseOptions.builder()
+                    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                    .build();
+            if (FirebaseApp.getApps().isEmpty()) {
+                FirebaseApp.initializeApp(options);
+                System.out.println("FirebaseApp initialized successfully");
+            } else {
+                System.out.println("FirebaseApp already initialized");
+            }
+        } catch (IOException e) {
+            throw new RuntimeException("Erro ao inicializar Firebase: " + e.getMessage(), e);
         }
+    }
 
+    @Bean
+    public FirebaseMessaging firebaseMessaging() {
         return FirebaseMessaging.getInstance();
-
     }
 }

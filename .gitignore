@@ -34,3 +34,6 @@ build/
 
 /src/main/resources/firebase/
 src/main/resources/firebase/serviceAccountKey.json
+
+logs/
+/logs/

@@ -1,22 +1,20 @@
 package com.example.api.proxy.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.LocalDateTime;
 
 @Entity
+@Setter
+@Getter
 public class TrackingData {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String trackingCode;
     private String lastStatus;
     private String pushToken;
     private LocalDateTime lastUpdated;
-
-    public String getTrackingCode() { return trackingCode; }
-    public void setTrackingCode(String trackingCode) { this.trackingCode = trackingCode; }
-    public String getLastStatus() { return lastStatus; }
-    public void setLastStatus(String lastStatus) { this.lastStatus = lastStatus; }
-    public String getPushToken() { return pushToken; }
-    public void setPushToken(String pushToken) { this.pushToken = pushToken; }
-    public LocalDateTime getLastUpdated() { return lastUpdated; }
-    public void setLastUpdated(LocalDateTime lastUpdated) { this.lastUpdated = lastUpdated; }
 }

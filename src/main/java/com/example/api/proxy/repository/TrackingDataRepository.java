@@ -7,4 +7,5 @@ import java.util.Optional;
 
 public interface TrackingDataRepository extends JpaRepository<TrackingData, String> {
     Optional<TrackingData> findByTrackingCode(String trackingCode);
+    Optional<TrackingData> findByPushToken(String pushToken);
 }

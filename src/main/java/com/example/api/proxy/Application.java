@@ -18,14 +18,5 @@ public class Application {
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
-
-    /*@Bean
-    public FirebaseApp initializeFirebase() throws IOException {
-        FileInputStream serviceAccount = new FileInputStream(System.getenv("FIREBASE_SERVICE_ACCOUNT_PATH"));
-        FirebaseOptions options = FirebaseOptions.builder()
-                .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                .build();
-        return FirebaseApp.initializeApp(options);
-    }*/
-
+	
 }

@@ -127,13 +127,6 @@ Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalh
 
 Para dúvidas ou sugestões, entre em contato em [seu-email@exemplo.com](mailto:seu-email@exemplo.com) ou abra uma issue no GitHub.
 
----
-
-Última atualização: 27/05/2025 19:35 -03
-```
-
----
-
 ### Notas
 - **Personalização**: Substitua `seu-usuario`, `YOUR_API_KEY`, e outros placeholders pelos valores reais do seu projeto.
 - **Horário**: Os arquivos refletem a data e hora atuais (27/05/2025 19:35 -03).

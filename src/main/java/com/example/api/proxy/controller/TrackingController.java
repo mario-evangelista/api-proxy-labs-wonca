@@ -19,7 +19,8 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://rastreio-encomendas-correios.onrender.com")    
 @Tag(name = "Rastreamento", description = "Endpoints para rastreamento de pacotes e registro de tokens de notificação")
 public class TrackingController {
 

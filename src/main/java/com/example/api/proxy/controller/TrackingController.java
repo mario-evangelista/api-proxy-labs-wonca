@@ -46,13 +46,6 @@ public class TrackingController {
         }
     }
 
-    /*@PostMapping("/track")
-    public ResponseEntity<String> trackPackage(@Valid @RequestBody TrackRequest request) {
-        logger.info("Requisição de rastreamento para o código: {}", request.getCode());
-        String response = trackingService.trackPackage(request.getCode());
-        return ResponseEntity.ok(response);
-    }*/
-
     @Operation(summary = "Registrar token de notificação push", description = "Registra um token de notificação push associado a um código de rastreamento.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Token registrado com sucesso", content = @Content),
@@ -68,22 +61,6 @@ public class TrackingController {
             return ResponseEntity.status(500).body("Error registering token: " + e.getMessage());
         }
     }
-
-    /*@PostMapping("/register-push-token")
-    public ResponseEntity<?> registerPushToken(@Valid @RequestBody PushTokenRequest body) {
-        trackingService.registerPushToken(body.getTrackingCode(), body.getPushToken());
-        return ResponseEntity.ok().build();
-    }*/
-
-    /*@PostMapping("/save-token")
-    public ResponseEntity<?> saveToken(@RequestBody PushTokenRequest request) {
-        try {
-            trackingService.registerPushToken(request.getTrackingCode(), request.getPushToken());
-            return ResponseEntity.ok().build();
-        } catch (Exception e) {
-            return ResponseEntity.status(500).body("Error saving token: " + e.getMessage());
-        }
-    }*/
 
     @PostMapping("/save-token")
     public ResponseEntity<?> saveToken(@RequestBody PushTokenRequest request) {

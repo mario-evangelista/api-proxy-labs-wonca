@@ -29,8 +29,8 @@ O backend oferece:
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/rastreio-encomendas-backend.git
-   cd rastreio-encomendas-backend
+   git clone https://github.com/mario-evangelista/rastreio-encomendas-correios.git
+   cd rastreio-encomendas-correios
    ```
 
 2. Configure as credenciais do Firebase:
@@ -63,7 +63,7 @@ O backend oferece:
 ## Endpoints da API
 
 - `POST /api/track`: Consulta o status de um código de rastreamento.
-  - Body: `{ "code": "AA123456789BR" }`
+  - Body: `{ "code": "AA123456789BR" }` (Códiigos para Teste: AM001396702BR, AK701276615BR, ND510007744BR, AM414094794BR)
   - Response: JSON com os dados do rastreamento.
 
 - `POST /api/register-push-token`: Registra um token FCM para notificações.
@@ -102,6 +102,6 @@ rastreio-encomendas-backend/
 └── README.md                    # Este arquivo
 ```
 
-## Contribuindo
+## Demonstração
 
 

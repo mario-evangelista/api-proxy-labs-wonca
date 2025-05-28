@@ -1,16 +1,28 @@
-FROM ubuntu:latest AS build
+# Etapa de build
+FROM maven:3.9.8-eclipse-temurin-17 AS build
+WORKDIR /app
 
-RUN apt-get update
-RUN apt-get install openjdk-17-jdk -y
-COPY . .
+# Copiar apenas o pom.xml para cachear as dependências
+COPY pom.xml .
+RUN mvn dependency:go-offline -B
 
-RUN apt-get install maven -y
-RUN mvn clean install
+# Copiar o restante do código e construir o projeto (pulando testes)
+COPY src ./src
+RUN mvn clean package -DskipTests -B
 
+# Etapa de runtime
 FROM openjdk:17-jdk-slim
+WORKDIR /app
 
+# Copiar o JAR gerado
+COPY --from=build /app/target/*.jar app.jar
+
+# Definir variáveis de ambiente padrão
+ENV FIREBASE_SERVICE_ACCOUNT_PATH=/etc/secrets/serviceAccountKey.json \
+    PORT=8080
+
+# Expor a porta
 EXPOSE 8080
 
-COPY --from=build /target/api.proxy-1.0.0.jar app.jar
-
-ENTRYPOINT [ "java", "-jar", "app.jar" ]
+# Comando de inicialização
+ENTRYPOINT ["java", "-jar", "app.jar"]

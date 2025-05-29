@@ -7,7 +7,6 @@ import jakarta.validation.constraints.Pattern;
 @Schema(description = "Objeto para registrar token de notificação push")
 public class PushTokenRequest {
     @Schema(description = "Código de rastreamento", example = "AB123456789BR")
-    //@NotNull(message = "Código de rastreamento é obrigatório")
     @Pattern(regexp = "[A-Z]{2}\\d{9}[A-Z]{2}", message = "Código de rastreamento deve seguir o formato XX999999999XX")
     private String trackingCode;
 

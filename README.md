@@ -71,6 +71,9 @@ O backend oferece:
 
 - `POST /api/test-updates`: Envia uma notificação de teste (para desenvolvimento).
 
+## Documentação da API
+Documentação (OpenAPI - Swagger): https://api-proxy-labs-wonca.onrender.com/swagger-ui/index.html
+
 ## Configuração do Firebase
 
 1. Adicione o arquivo `firebase-service-account.json` ao projeto.

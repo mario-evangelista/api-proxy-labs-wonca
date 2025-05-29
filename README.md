@@ -209,7 +209,7 @@ Se a notificação não for recebida:
 - Para testes em produção, substitua `http://localhost:8080` por uma URL real no `webpushConfig`.
 - Consulte a [documentação do Firebase Messaging](https://firebase.google.com/docs/cloud-messaging) para mais detalhes sobre erros e configurações.
 - Documentação Firebase Notificação Web Push: https://firebase.google.com/docs/cloud-messaging/js/client?hl=pt-br
-
+<br>
 <div align="center">
 <img src="https://github.com/user-attachments/assets/e2fee396-326b-45d6-b7f6-49fbfafae42c" width="700px" />
 </div>

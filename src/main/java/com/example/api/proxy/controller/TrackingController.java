@@ -63,8 +63,14 @@ public class TrackingController {
         }
     }
 
+    @Operation(summary = "Salvar token de notificação push", description = "Salva um token de notificação push associado a um código de rastreamento para envio de atualizações.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Token salvo com sucesso", content = @Content),
+            @ApiResponse(responseCode = "400", description = "Parâmetros 'trackingCode' ou 'pushToken' ausentes ou inválidos", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(responseCode = "500", description = "Erro interno no servidor ao salvar o token", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)))
+    })
     @PostMapping("/save-token")
-    public ResponseEntity<?> saveToken(@RequestBody PushTokenRequest request) {
+    public ResponseEntity<?> saveToken(@Valid @RequestBody PushTokenRequest request) {
         try {
             trackingService.registerPushToken(request.getTrackingCode(), request.getPushToken());
             return ResponseEntity.ok().build();

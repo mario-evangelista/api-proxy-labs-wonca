@@ -24,6 +24,7 @@ O backend oferece:
 - Maven (versão 3.6.x ou superior)
 - Acesso à internet para carregar dependências e conectar à API dos Correios
 - Credenciais do Firebase (chave privada do Admin SDK)
+- Aplicação Web para visualizar as notificações web push: https://github.com/mario-evangelista/rastreio-encomendas-correios
 
 ## Instalação
 

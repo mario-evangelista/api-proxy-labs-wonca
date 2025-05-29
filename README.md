@@ -105,10 +105,6 @@ rastreio-encomendas-backend/
 └── README.md                    # Este arquivo
 ```
 
-## Demonstração
-
-Com base no código fornecido para `PushTestMain.java` e assumindo que você quer um arquivo `README.md` para documentar como testar o envio de notificações push usando essa classe, criei um conteúdo em Markdown com instruções detalhadas. O arquivo `.md` será projetado para guiar o usuário na configuração e execução do teste, considerando o código Java fornecido, que utiliza Firebase Cloud Messaging (FCM) para enviar notificações Web Push.
-
 # Testando Notificações Push com PushTestMain
 
 Este documento fornece instruções para configurar e testar o envio de notificações Web Push usando a classe `PushTestMain.java`, que utiliza Firebase Cloud Messaging (FCM) para enviar notificações a um dispositivo ou navegador registrado.
@@ -209,6 +205,9 @@ Se a notificação não for recebida:
 - Para testes em produção, substitua `http://localhost:8080` por uma URL real no `webpushConfig`.
 - Consulte a [documentação do Firebase Messaging](https://firebase.google.com/docs/cloud-messaging) para mais detalhes sobre erros e configurações.
 - Documentação Firebase Notificação Web Push: https://firebase.google.com/docs/cloud-messaging/js/client?hl=pt-br
+
+## Demonstração
+
 <br>
 <div align="center">
 <img src="https://github.com/user-attachments/assets/fdb6ecbf-41cf-4e12-9d10-4114373d5e44" width="2000px" />

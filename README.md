@@ -211,5 +211,5 @@ Se a notificação não for recebida:
 - Documentação Firebase Notificação Web Push: https://firebase.google.com/docs/cloud-messaging/js/client?hl=pt-br
 <br>
 <div align="center">
-<img src="https://github.com/user-attachments/assets/fdb6ecbf-41cf-4e12-9d10-4114373d5e44" width="700px" />
+<img src="https://github.com/user-attachments/assets/fdb6ecbf-41cf-4e12-9d10-4114373d5e44" width="1000px" />
 </div>

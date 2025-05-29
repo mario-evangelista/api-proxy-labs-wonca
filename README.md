@@ -27,17 +27,23 @@ O backend oferece:
 
 ## Instalação
 
-1. Clone o repositório:
+1. Clone o repositório do Frontend:
    ```bash
    git clone https://github.com/mario-evangelista/rastreio-encomendas-correios.git
    cd rastreio-encomendas-correios
    ```
 
-2. Configure as credenciais do Firebase:
+1. Clone este repositório:
+   ```bash
+   git clone https://github.com/mario-evangelista/api-proxy-labs-wonca.git
+   cd api-proxy-labs-wonca
+   ```
+
+3. Configure as credenciais do Firebase:
    - Baixe o arquivo JSON do Admin SDK no [Firebase Console](https://console.firebase.google.com/).
    - Coloque o arquivo em `src/main/resources/firebase-service-account.json`.
 
-3. Configure as variáveis de ambiente:
+4. Configure as variáveis de ambiente:
    - Crie um arquivo `application.properties` em `src/main/resources` com o seguinte conteúdo:
      ```
      spring.datasource.url=jdbc:h2:mem:testdb
@@ -49,12 +55,12 @@ O backend oferece:
      ```
    - Para produção, ajuste o `spring.datasource.url` para seu banco de dados (ex.: PostgreSQL).
 
-4. Instale as dependências e compile o projeto:
+5. Instale as dependências e compile o projeto:
    ```bash
    mvn clean install
    ```
 
-5. Inicie a aplicação:
+6. Inicie a aplicação:
    ```bash
    mvn spring-boot:run
    ```

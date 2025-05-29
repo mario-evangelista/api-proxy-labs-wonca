@@ -70,7 +70,7 @@ O backend oferece:
 ## Endpoints da API
 
 - `POST /api/track`: Consulta o status de um código de rastreamento.
-  - Body: `{ "code": "AA123456789BR" }` (Códiigos para Teste: AM001396702BR, AK701276615BR, ND510007744BR, AM414094794BR)
+  - Body: `{ "code": "AA123456789BR" }` (Códiigos para Teste: AM001396702BR, ND510007744BR, AM414094794BR)
   - Response: JSON com os dados do rastreamento.
 
 - `POST /api/register-push-token`: Registra um token FCM para notificações.
